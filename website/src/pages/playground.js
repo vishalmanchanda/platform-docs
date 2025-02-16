@@ -34,6 +34,32 @@ const lifecycleStages = {
 					'Generating market analysis report...',
 					'Providing feature recommendations...'
 				]
+			},
+			{
+				name: 'Cost Estimation Agent',
+				icon: 'fa-solid fa-calculator',
+				type: 'Reasoning-based',
+				model: 'GPT-4',
+				steps: [
+					'Analyzing project scope...',
+					'Calculating resource requirements...',
+					'Estimating development timeline...',
+					'Computing infrastructure costs...',
+					'Generating detailed cost breakdown...'
+				]
+			},
+			{
+				name: 'Team Composition Advisor',
+				icon: 'fa-solid fa-users-gear',
+				type: 'Reasoning-based',
+				model: 'Claude-3',
+				steps: [
+					'Analyzing project requirements...',
+					'Determining required skill sets...',
+					'Calculating team size...',
+					'Suggesting team structure...',
+					'Generating resource allocation plan...'
+				]
 			}
 		]
 	},
@@ -42,29 +68,55 @@ const lifecycleStages = {
 		icon: 'fa-solid fa-compass-drafting',
 		agents: [
 			{
-				name: 'Architecture Pattern Recommender',
-				icon: 'fa-solid fa-diagram-project',
+				name: 'Microservices Architect',
+				icon: 'fa-solid fa-cubes',
 				type: 'Reasoning-based',
-				model: 'Claude-3',
+				model: 'GPT-4',
 				steps: [
-					'Analyzing system requirements...',
-					'Evaluating architectural constraints...',
-					'Identifying suitable patterns...',
-					'Generating architecture recommendations...',
-					'Creating component diagram...'
+					'Analyzing domain boundaries...',
+					'Designing service interfaces...',
+					'Planning data management...',
+					'Defining communication patterns...',
+					'Generating architecture diagram...'
 				]
 			},
 			{
-				name: 'Infrastructure Planner',
-				icon: 'fa-solid fa-network-wired',
+				name: 'Serverless Architect',
+				icon: 'fa-solid fa-cloud-bolt',
+				type: 'Reasoning-based',
+				model: 'Claude-3',
+				steps: [
+					'Analyzing function requirements...',
+					'Designing event flows...',
+					'Planning resource allocation...',
+					'Optimizing cold starts...',
+					'Creating serverless architecture...'
+				]
+			},
+			{
+				name: 'Database Designer',
+				icon: 'fa-solid fa-database',
+				type: 'Reasoning-based',
+				model: 'GPT-4',
+				steps: [
+					'Analyzing data requirements...',
+					'Designing schema structure...',
+					'Optimizing query patterns...',
+					'Planning data migration...',
+					'Generating database diagram...'
+				]
+			},
+			{
+				name: 'API Designer',
+				icon: 'fa-solid fa-plug-circle-bolt',
 				type: 'Workflow-based',
 				model: 'Custom ML',
 				steps: [
-					'Analyzing workload patterns...',
-					'Calculating resource requirements...',
-					'Generating scaling recommendations...',
-					'Estimating costs...',
-					'Creating infrastructure blueprint...'
+					'Analyzing API requirements...',
+					'Designing endpoints...',
+					'Creating OpenAPI spec...',
+					'Validating API patterns...',
+					'Generating API documentation...'
 				]
 			}
 		]
@@ -74,29 +126,113 @@ const lifecycleStages = {
 		icon: 'fa-solid fa-code',
 		agents: [
 			{
-				name: 'Code Generator',
-				icon: 'fa-solid fa-gears',
+				name: 'Frontend Generator (React)',
+				icon: 'fa-brands fa-react',
 				type: 'Workflow-based',
 				model: 'StarCoder',
 				steps: [
-					'Analyzing requirements specification...',
-					'Generating code structure...',
-					'Implementing business logic...',
-					'Adding error handling...',
-					'Generating unit tests...'
+					'Analyzing UI requirements...',
+					'Generating component structure...',
+					'Implementing React components...',
+					'Adding state management...',
+					'Creating unit tests...'
 				]
 			},
 			{
-				name: 'Code Reviewer',
-				icon: 'fa-solid fa-code-branch',
-				type: 'Reasoning-based',
+				name: 'Backend Generator (Node.js)',
+				icon: 'fa-brands fa-node-js',
+				type: 'Workflow-based',
+				model: 'CodeGen',
+				steps: [
+					'Setting up Express server...',
+					'Implementing API routes...',
+					'Adding middleware...',
+					'Implementing database logic...',
+					'Creating API tests...'
+				]
+			},
+			{
+				name: 'Backend Generator (Java)',
+				icon: 'fa-brands fa-java',
+				type: 'Workflow-based',
+				model: 'CodeGen',
+				steps: [
+					'Setting up Spring Boot...',
+					'Implementing REST controllers...',
+					'Adding service layer...',
+					'Implementing JPA entities...',
+					'Creating unit tests...'
+				]
+			},
+			{
+				name: 'Mobile App Generator',
+				icon: 'fa-solid fa-mobile-screen',
+				type: 'Workflow-based',
+				model: 'Custom ML',
+				steps: [
+					'Setting up React Native...',
+					'Generating screen components...',
+					'Implementing navigation...',
+					'Adding state management...',
+					'Creating mobile tests...'
+				]
+			}
+		]
+	},
+	quality: {
+		title: 'Quality Assurance',
+		icon: 'fa-solid fa-check-double',
+		agents: [
+			{
+				name: 'Unit Test Generator',
+				icon: 'fa-solid fa-vial',
+				type: 'Workflow-based',
 				model: 'CodeQL',
 				steps: [
-					'Scanning code for vulnerabilities...',
-					'Checking coding standards...',
-					'Analyzing performance patterns...',
-					'Identifying potential bugs...',
-					'Generating review report...'
+					'Analyzing code structure...',
+					'Identifying test cases...',
+					'Generating unit tests...',
+					'Adding mock data...',
+					'Creating test documentation...'
+				]
+			},
+			{
+				name: 'Integration Test Designer',
+				icon: 'fa-solid fa-puzzle-piece',
+				type: 'Reasoning-based',
+				model: 'GPT-4',
+				steps: [
+					'Analyzing service interactions...',
+					'Designing test scenarios...',
+					'Creating test data...',
+					'Implementing integration tests...',
+					'Generating test report...'
+				]
+			},
+			{
+				name: 'Performance Test Generator',
+				icon: 'fa-solid fa-gauge-high',
+				type: 'Workflow-based',
+				model: 'Custom ML',
+				steps: [
+					'Analyzing performance requirements...',
+					'Creating load test scenarios...',
+					'Generating test scripts...',
+					'Executing performance tests...',
+					'Creating performance report...'
+				]
+			},
+			{
+				name: 'Security Test Generator',
+				icon: 'fa-solid fa-shield-halved',
+				type: 'Workflow-based',
+				model: 'Custom ML',
+				steps: [
+					'Scanning for vulnerabilities...',
+					'Testing authentication...',
+					'Checking authorization...',
+					'Testing data protection...',
+					'Generating security report...'
 				]
 			}
 		]
@@ -106,29 +242,113 @@ const lifecycleStages = {
 		icon: 'fa-solid fa-rocket',
 		agents: [
 			{
-				name: 'Deployment Optimizer',
-				icon: 'fa-solid fa-cloud-arrow-up',
-				type: 'Reasoning-based',
-				model: 'GPT-4',
-				steps: [
-					'Analyzing deployment environment...',
-					'Checking resource availability...',
-					'Optimizing deployment sequence...',
-					'Validating configuration...',
-					'Executing deployment plan...'
-				]
-			},
-			{
-				name: 'Infrastructure Manager',
-				icon: 'fa-solid fa-server',
+				name: 'AWS Deployment Agent',
+				icon: 'fa-brands fa-aws',
 				type: 'Workflow-based',
 				model: 'Custom ML',
 				steps: [
-					'Monitoring resource utilization...',
-					'Adjusting scaling parameters...',
-					'Optimizing resource allocation...',
-					'Managing infrastructure costs...',
-					'Generating performance report...'
+					'Configuring AWS services...',
+					'Setting up VPC...',
+					'Deploying ECS clusters...',
+					'Configuring auto-scaling...',
+					'Setting up monitoring...'
+				]
+			},
+			{
+				name: 'Azure Deployment Agent',
+				icon: 'fa-solid fa-cloud',
+				type: 'Workflow-based',
+				model: 'Custom ML',
+				steps: [
+					'Configuring Azure services...',
+					'Setting up virtual network...',
+					'Deploying AKS clusters...',
+					'Configuring scaling sets...',
+					'Setting up Azure Monitor...'
+				]
+			},
+			{
+				name: 'GCP Deployment Agent',
+				icon: 'fa-brands fa-google',
+				type: 'Workflow-based',
+				model: 'Custom ML',
+				steps: [
+					'Configuring GCP services...',
+					'Setting up VPC network...',
+					'Deploying GKE clusters...',
+					'Configuring auto-scaling...',
+					'Setting up Cloud Monitoring...'
+				]
+			},
+			{
+				name: 'Kubernetes Operator',
+				icon: 'fa-solid fa-dharmachakra',
+				type: 'Reasoning-based',
+				model: 'GPT-4',
+				steps: [
+					'Analyzing cluster requirements...',
+					'Configuring namespaces...',
+					'Setting up service mesh...',
+					'Implementing auto-scaling...',
+					'Configuring monitoring...'
+				]
+			}
+		]
+	},
+	monitoring: {
+		title: 'Monitoring & Analytics',
+		icon: 'fa-solid fa-chart-simple',
+		agents: [
+			{
+				name: 'Metrics Analyzer',
+				icon: 'fa-solid fa-chart-line',
+				type: 'Reasoning-based',
+				model: 'Custom ML',
+				steps: [
+					'Collecting system metrics...',
+					'Analyzing performance patterns...',
+					'Detecting anomalies...',
+					'Generating insights...',
+					'Creating performance report...'
+				]
+			},
+			{
+				name: 'Log Analyzer',
+				icon: 'fa-solid fa-file-lines',
+				type: 'Reasoning-based',
+				model: 'GPT-4',
+				steps: [
+					'Collecting system logs...',
+					'Analyzing log patterns...',
+					'Identifying issues...',
+					'Correlating events...',
+					'Generating log analysis...'
+				]
+			},
+			{
+				name: 'Cost Optimizer',
+				icon: 'fa-solid fa-coins',
+				type: 'Reasoning-based',
+				model: 'Custom ML',
+				steps: [
+					'Analyzing resource usage...',
+					'Identifying optimization opportunities...',
+					'Calculating potential savings...',
+					'Generating recommendations...',
+					'Creating cost report...'
+				]
+			},
+			{
+				name: 'Security Monitor',
+				icon: 'fa-solid fa-shield-virus',
+				type: 'Reasoning-based',
+				model: 'Custom ML',
+				steps: [
+					'Monitoring security events...',
+					'Detecting threats...',
+					'Analyzing attack patterns...',
+					'Generating alerts...',
+					'Creating security report...'
 				]
 			}
 		]
