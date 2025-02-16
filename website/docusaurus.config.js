@@ -138,7 +138,7 @@ module.exports = {
 				theme: {
 					customCss: [
 						require.resolve('./src/theme/styles.css'),
-						// require.resolve('@infinum/docusaurus-theme/dist/style.css'),
+						require.resolve('@infinum/docusaurus-theme/dist/style.css'),
 						require.resolve('./src/css/custom.css'),
 					],
 				},

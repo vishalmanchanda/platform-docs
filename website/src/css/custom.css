@@ -52,4 +52,64 @@
     gap: 1rem;
     text-align: center;
   }
-} 
+}
+
+/* .navbar__logo {
+  height: 3rem;
+  width: 6rem;
+}  */
+
+.navbar__brand {
+  height: 5rem;
+  width: 15rem;
+}
+
+.navbar__brand img {
+  height: 2.0rem;
+  width: 3.5rem;
+  margin-top: 0rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 3.5rem;
+  object-fit: cover;
+  object-position: center;
+  scale: 2.5;
+
+}
+
+.navbar__brand img:hover {
+  transform: scale(1.1);
+}
+
+
+/* change the color of the text */
+
+.theme-doc-sidebar-container {
+
+
+.menu__link {
+    color: #000000;
+}   
+
+.menu__link:hover {
+    color: #0000FF;
+}
+
+.menu__link-active {
+    color: #0000FF;
+}
+
+.menu__link:active {
+    color: #0000FF;
+}
+
+}
+
+
+
+/* change the active link color to blue for all the links */
+
+.menu__link-active {
+    color: #0000FF;
+}
+
