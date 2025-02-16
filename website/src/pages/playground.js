@@ -3,105 +3,171 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 
-// Predefined prompts for different platform components
-const predefinedPrompts = {
-	architecture: [
-		{
-			title: 'Microservices Design',
-			prompt: 'Design a microservices architecture for a platform that handles user authentication, product management, and order processing.',
-		},
-		{
-			title: 'API Gateway Setup',
-			prompt: 'Create an API gateway configuration for managing multiple microservices with rate limiting and authentication.',
-		},
-	],
-	development: [
-		{
-			title: 'CI/CD Pipeline',
-			prompt: 'Design a CI/CD pipeline for a microservices-based platform using GitHub Actions and Kubernetes.',
-		},
-		{
-			title: 'Testing Strategy',
-			prompt: 'Develop a comprehensive testing strategy including unit tests, integration tests, and end-to-end tests for a platform.',
-		},
-	],
-	security: [
-		{
-			title: 'Authentication System',
-			prompt: 'Design a secure authentication system using OAuth 2.0 and JWT tokens.',
-		},
-		{
-			title: 'Security Best Practices',
-			prompt: 'List security best practices for protecting APIs and implementing secure data storage.',
-		},
-	],
-	infrastructure: [
-		{
-			title: 'Cloud Infrastructure',
-			prompt: 'Design a scalable cloud infrastructure using AWS/Azure/GCP for a microservices platform.',
-		},
-		{
-			title: 'Monitoring Setup',
-			prompt: 'Create a monitoring and alerting setup using Prometheus and Grafana for a distributed system.',
-		},
-	],
+// Platform Engineering Lifecycle Stages with AI Agents
+const lifecycleStages = {
+	planning: {
+		title: 'Planning & Requirements',
+		agents: [
+			{
+				name: 'Requirements Analyzer',
+				type: 'Reasoning-based',
+				model: 'GPT-4',
+				steps: [
+					'Analyzing requirements document structure...',
+					'Identifying key stakeholders and dependencies...',
+					'Checking for requirement completeness...',
+					'Generating requirement gaps report...',
+					'Providing recommendations for improvement...'
+				]
+			},
+			{
+				name: 'Market Research Agent',
+				type: 'Workflow-based',
+				model: 'BERT',
+				steps: [
+					'Collecting market data from specified sources...',
+					'Analyzing competitor features...',
+					'Identifying industry trends...',
+					'Generating market analysis report...',
+					'Providing feature recommendations...'
+				]
+			}
+		]
+	},
+	design: {
+		title: 'Design & Architecture',
+		agents: [
+			{
+				name: 'Architecture Pattern Recommender',
+				type: 'Reasoning-based',
+				model: 'Claude-3',
+				steps: [
+					'Analyzing system requirements...',
+					'Evaluating architectural constraints...',
+					'Identifying suitable patterns...',
+					'Generating architecture recommendations...',
+					'Creating component diagram...'
+				]
+			},
+			{
+				name: 'Infrastructure Planner',
+				type: 'Workflow-based',
+				model: 'Custom ML',
+				steps: [
+					'Analyzing workload patterns...',
+					'Calculating resource requirements...',
+					'Generating scaling recommendations...',
+					'Estimating costs...',
+					'Creating infrastructure blueprint...'
+				]
+			}
+		]
+	},
+	development: {
+		title: 'Development',
+		agents: [
+			{
+				name: 'Code Generator',
+				type: 'Workflow-based',
+				model: 'StarCoder',
+				steps: [
+					'Analyzing requirements specification...',
+					'Generating code structure...',
+					'Implementing business logic...',
+					'Adding error handling...',
+					'Generating unit tests...'
+				]
+			},
+			{
+				name: 'Code Reviewer',
+				type: 'Reasoning-based',
+				model: 'CodeQL',
+				steps: [
+					'Scanning code for vulnerabilities...',
+					'Checking coding standards...',
+					'Analyzing performance patterns...',
+					'Identifying potential bugs...',
+					'Generating review report...'
+				]
+			}
+		]
+	},
+	deployment: {
+		title: 'Deployment & Operations',
+		agents: [
+			{
+				name: 'Deployment Optimizer',
+				type: 'Reasoning-based',
+				model: 'GPT-4',
+				steps: [
+					'Analyzing deployment environment...',
+					'Checking resource availability...',
+					'Optimizing deployment sequence...',
+					'Validating configuration...',
+					'Executing deployment plan...'
+				]
+			},
+			{
+				name: 'Infrastructure Manager',
+				type: 'Workflow-based',
+				model: 'Custom ML',
+				steps: [
+					'Monitoring resource utilization...',
+					'Adjusting scaling parameters...',
+					'Optimizing resource allocation...',
+					'Managing infrastructure costs...',
+					'Generating performance report...'
+				]
+			}
+		]
+	}
 };
 
 export default function AIPlayground() {
 	const context = useDocusaurusContext();
 	const { siteConfig = {} } = context;
 	
-	const [selectedCategory, setSelectedCategory] = useState('architecture');
-	const [selectedPrompt, setSelectedPrompt] = useState('');
-	const [customPrompt, setCustomPrompt] = useState('');
-	const [response, setResponse] = useState('');
-	const [isLoading, setIsLoading] = useState(false);
+	const [selectedStage, setSelectedStage] = useState('planning');
+	const [selectedAgent, setSelectedAgent] = useState(null);
+	const [executionLogs, setExecutionLogs] = useState([]);
+	const [isExecuting, setIsExecuting] = useState(false);
 
-	const handlePromptSelect = (prompt) => {
-		setSelectedPrompt(prompt);
-		setCustomPrompt(prompt);
-	};
+	const executeAgent = async (agent) => {
+		setSelectedAgent(agent);
+		setIsExecuting(true);
+		setExecutionLogs([]);
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		setIsLoading(true);
-		
-		try {
-			// Here you would integrate with your AI service
-			// For now, we'll just simulate a response
+		// Simulate step execution with delays
+		for (const step of agent.steps) {
 			await new Promise(resolve => setTimeout(resolve, 1000));
-			setResponse('AI response will appear here. Integration with AI service pending.');
-		} catch (error) {
-			setResponse('Error: Failed to get AI response.');
-		} finally {
-			setIsLoading(false);
+			setExecutionLogs(prev => [...prev, step]);
 		}
+
+		setIsExecuting(false);
 	};
 
 	return (
 		<Layout
-			title="AI Playground"
-			description={siteConfig.tagline}
-			keywords={siteConfig.customFields.keywords}
-			metaImage={useBaseUrl(`img/${siteConfig.customFields.image}`)}
+			title="AI Agents Playground"
+			description="Platform Engineering AI Agents"
 		>
 			<div className="container margin-vert--lg">
 				<div className="row">
 					<div className="col col--3">
 						<div className="card">
 							<div className="card__header">
-								<h3>Categories</h3>
+								<h3>Lifecycle Stages</h3>
 							</div>
 							<div className="card__body">
-								{Object.keys(predefinedPrompts).map((category) => (
+								{Object.entries(lifecycleStages).map(([key, stage]) => (
 									<button
-										key={category}
+										key={key}
 										className={`button button--block margin-bottom--sm ${
-											selectedCategory === category ? 'button--primary' : 'button--secondary'
+											selectedStage === key ? 'button--primary' : 'button--secondary'
 										}`}
-										onClick={() => setSelectedCategory(category)}
+										onClick={() => setSelectedStage(key)}
 									>
-										{category.charAt(0).toUpperCase() + category.slice(1)}
+										{stage.title}
 									</button>
 								))}
 							</div>
@@ -109,71 +175,69 @@ export default function AIPlayground() {
 					</div>
 					
 					<div className="col col--9">
-						<div className="card margin-bottom--lg">
-							<div className="card__header">
-								<h3>Predefined Prompts</h3>
-							</div>
-							<div className="card__body">
-								<div className="row">
-									{predefinedPrompts[selectedCategory].map((item) => (
-										<div key={item.title} className="col col--6 margin-bottom--sm">
-											<div
-												className={`card ${
-													selectedPrompt === item.prompt ? 'shadow--md' : ''
-												}`}
-												style={{ cursor: 'pointer' }}
-												onClick={() => handlePromptSelect(item.prompt)}
-											>
-												<div className="card__body">
-													<h4>{item.title}</h4>
-													<p>{item.prompt}</p>
-												</div>
-											</div>
+						<div className="row">
+							{lifecycleStages[selectedStage].agents.map((agent, index) => (
+								<div key={index} className="col col--6 margin-bottom--lg">
+									<div className="card" style={{ height: '100%' }}>
+										<div className="card__header">
+											<h4>{agent.name}</h4>
 										</div>
-									))}
+										<div className="card__body">
+											<p><strong>Type:</strong> {agent.type}</p>
+											<p><strong>Model:</strong> {agent.model}</p>
+											<button
+												className={`button button--block ${
+													selectedAgent?.name === agent.name && isExecuting
+														? 'button--secondary'
+														: 'button--primary'
+												}`}
+												onClick={() => executeAgent(agent)}
+												disabled={isExecuting}
+											>
+												{selectedAgent?.name === agent.name && isExecuting
+													? 'Executing...'
+													: 'Execute Agent'}
+											</button>
+										</div>
+									</div>
 								</div>
-							</div>
+							))}
 						</div>
 
-						<div className="card">
-							<div className="card__header">
-								<h3>AI Prompt</h3>
-							</div>
-							<div className="card__body">
-								<form onSubmit={handleSubmit}>
-									<textarea
-										className="margin-bottom--sm"
-										style={{
-											width: '100%',
-											minHeight: '100px',
-											padding: '0.5rem',
-											borderRadius: '4px',
-											border: '1px solid var(--ifm-color-emphasis-300)',
-										}}
-										value={customPrompt}
-										onChange={(e) => setCustomPrompt(e.target.value)}
-										placeholder="Enter your prompt or select a predefined one..."
-									/>
-									<button
-										type="submit"
-										className="button button--primary button--block"
-										disabled={isLoading || !customPrompt}
-									>
-										{isLoading ? 'Generating...' : 'Generate Response'}
-									</button>
-								</form>
-							</div>
-						</div>
-
-						{response && (
-							<div className="card margin-top--lg">
+						{selectedAgent && (
+							<div className="card margin-top--md">
 								<div className="card__header">
-									<h3>AI Response</h3>
+									<h3>Execution Logs: {selectedAgent.name}</h3>
 								</div>
 								<div className="card__body">
-									<pre style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}>
-										{response}
-									</pre>
+									<div style={{ 
+										backgroundColor: 'var(--ifm-pre-background)', 
+										padding: '1rem',
+										borderRadius: '4px',
+										maxHeight: '300px',
+										overflowY: 'auto'
+									}}>
+										{executionLogs.map((log, index) => (
+											<div key={index} style={{ 
+												marginBottom: '0.5rem',
+												display: 'flex',
+												alignItems: 'center'
+											}}>
+												<span style={{ 
+													color: 'var(--ifm-color-success)',
+													marginRight: '0.5rem'
+												}}>
+													●
+												</span>
+												{log}
+											</div>
+										))}
+										{isExecuting && (
+											<div className="loading-dots">
+												Processing...
+											</div>
+										)}
+									</div>
 								</div>
 							</div>
 						)}
