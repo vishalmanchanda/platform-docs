@@ -35,12 +35,7 @@ module.exports = {
 					label: 'DevKit',
 					position: 'right',
 				},
-				{
-					to: 'forms/welcome',
-					activeBasePath: 'forms',
-					label: 'Forms',
-					position: 'right',
-				},
+				
 				{
 					to: '/components/welcome',
 					activeBasePath: 'components',
@@ -159,15 +154,7 @@ module.exports = {
 		],
 	],
 	plugins: [
-		[
-			'@docusaurus/plugin-content-docs',
-			{
-				id: 'forms',
-				path: 'forms',
-				routeBasePath: 'forms',
-				sidebarPath: require.resolve('./sidebars-forms.js'),
-			},
-		],
+		
 		[
 			'@docusaurus/plugin-content-docs',
 			{

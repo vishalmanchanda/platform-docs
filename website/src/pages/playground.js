@@ -301,7 +301,7 @@ const lifecycleStages = {
 		agents: [
 			{
 				name: 'Metrics Analyzer',
-				icon: 'fa-solid fa-chart-line',
+				icon: 'fa-solid fa-chart-column',
 				type: 'Reasoning-based',
 				model: 'Custom ML',
 				steps: [
@@ -314,7 +314,7 @@ const lifecycleStages = {
 			},
 			{
 				name: 'Log Analyzer',
-				icon: 'fa-solid fa-file-lines',
+				icon: 'fa-solid fa-magnifying-glass-chart',
 				type: 'Reasoning-based',
 				model: 'GPT-4',
 				steps: [
@@ -327,7 +327,7 @@ const lifecycleStages = {
 			},
 			{
 				name: 'Cost Optimizer',
-				icon: 'fa-solid fa-coins',
+				icon: 'fa-solid fa-money-bill-trend-up',
 				type: 'Reasoning-based',
 				model: 'Custom ML',
 				steps: [
@@ -340,7 +340,7 @@ const lifecycleStages = {
 			},
 			{
 				name: 'Security Monitor',
-				icon: 'fa-solid fa-shield-virus',
+				icon: 'fa-solid fa-shield-halved',
 				type: 'Reasoning-based',
 				model: 'Custom ML',
 				steps: [
@@ -369,7 +369,6 @@ export default function AIPlayground() {
 		setIsExecuting(true);
 		setExecutionLogs([]);
 
-		// Simulate step execution with delays
 		for (const step of agent.steps) {
 			await new Promise(resolve => setTimeout(resolve, 1000));
 			setExecutionLogs(prev => [...prev, step]);
@@ -384,63 +383,79 @@ export default function AIPlayground() {
 			description="Platform Engineering AI Agents"
 		>
 			<div className="container mx-auto px-4 py-8">
-				<div className="flex flex-col md:flex-row gap-6">
-					{/* Lifecycle Stages */}
-					<div className="md:w-1/4">
-						<div className="bg-white rounded-lg shadow-lg p-4">
-							<h3 className="text-xl font-bold mb-4 flex items-center">
-								<i className="fa-solid fa-layer-group mr-2"></i>
+				{/* Header Section */}
+				<div className="mb-8 text-center">
+					<h1 className="text-3xl font-bold mb-2">Platform Engineering AI Agents</h1>
+					<p className="text-gray-600">Explore and execute AI agents across different platform engineering stages</p>
+				</div>
+
+				<div className="flex flex-col lg:flex-row gap-6">
+					{/* Lifecycle Stages Sidebar */}
+					<div className="lg:w-1/4">
+						<div className="bg-white rounded-xl shadow-lg p-4 sticky top-4">
+							<h3 className="text-xl font-bold mb-4 flex items-center text-gray-800">
+								<i className="fa-solid fa-layer-group mr-2 text-blue-600"></i>
 								Lifecycle Stages
 							</h3>
 							<div className="space-y-2">
 								{Object.entries(lifecycleStages).map(([key, stage]) => (
 									<button
 										key={key}
-										className={`w-full px-4 py-2 rounded-lg flex items-center transition-all ${
+										className={`w-full px-4 py-3 rounded-lg flex items-center transition-all ${
 											selectedStage === key
-												? 'bg-blue-600 text-white'
-												: 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+												? 'bg-blue-600 text-white shadow-md'
+												: 'bg-gray-50 hover:bg-gray-100 text-gray-700'
 										}`}
 										onClick={() => setSelectedStage(key)}
 									>
-										<i className={`${stage.icon} mr-2`}></i>
-										{stage.title}
+										<i className={`${stage.icon} mr-3 text-lg ${
+											selectedStage === key ? 'text-white' : 'text-blue-600'
+										}`}></i>
+										<span className="font-medium">{stage.title}</span>
 									</button>
 								))}
 							</div>
 						</div>
 					</div>
 
-					{/* Main Content */}
-					<div className="md:w-3/4">
+					{/* Main Content Area */}
+					<div className="lg:w-3/4">
+						{/* Stage Header */}
+						<div className="mb-6 bg-white rounded-xl shadow-lg p-4">
+							<h2 className="text-2xl font-bold flex items-center text-gray-800">
+								<i className={`${lifecycleStages[selectedStage].icon} mr-3 text-blue-600`}></i>
+								{lifecycleStages[selectedStage].title}
+							</h2>
+						</div>
+
 						{/* Agents Grid */}
 						<div className="grid md:grid-cols-2 gap-6 mb-6">
 							{lifecycleStages[selectedStage].agents.map((agent, index) => (
-								<div key={index} className="bg-white rounded-lg shadow-lg transition-all hover:shadow-xl">
-									<div className="p-4 border-b">
-										<h4 className="text-lg font-bold flex items-center">
-											<i className={`${agent.icon} mr-2 text-blue-600`}></i>
+								<div key={index} className="bg-white rounded-xl shadow-lg transition-all hover:shadow-xl">
+									<div className="p-4 border-b border-gray-100">
+										<h4 className="text-lg font-bold flex items-center text-gray-800">
+											<i className={`${agent.icon} mr-3 text-xl text-blue-600`}></i>
 											{agent.name}
 										</h4>
 									</div>
 									<div className="p-4">
-										<div className="mb-4 space-y-2">
-											<p className="flex items-center">
-												<i className="fa-solid fa-robot mr-2 text-gray-500"></i>
-												<span className="font-semibold">Type:</span>
+										<div className="mb-4 space-y-3">
+											<p className="flex items-center text-gray-700">
+												<i className="fa-solid fa-microchip mr-3 text-blue-500"></i>
+												<span className="font-medium">Type:</span>
 												<span className="ml-2">{agent.type}</span>
 											</p>
-											<p className="flex items-center">
-												<i className="fa-solid fa-microchip mr-2 text-gray-500"></i>
-												<span className="font-semibold">Model:</span>
+											<p className="flex items-center text-gray-700">
+												<i className="fa-solid fa-brain mr-3 text-blue-500"></i>
+												<span className="font-medium">Model:</span>
 												<span className="ml-2">{agent.model}</span>
 											</p>
 										</div>
 										<button
-											className={`w-full px-4 py-2 rounded-lg transition-all ${
+											className={`w-full px-4 py-3 rounded-lg transition-all flex items-center justify-center ${
 												selectedAgent?.name === agent.name && isExecuting
-													? 'bg-gray-200 text-gray-700'
-													: 'bg-blue-600 hover:bg-blue-700 text-white'
+													? 'bg-gray-100 text-gray-600'
+													: 'bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg'
 											}`}
 											onClick={() => executeAgent(agent)}
 											disabled={isExecuting}
@@ -457,25 +472,25 @@ export default function AIPlayground() {
 
 						{/* Execution Logs */}
 						{selectedAgent && (
-							<div className="bg-white rounded-lg shadow-lg">
-								<div className="p-4 border-b">
-									<h3 className="text-lg font-bold flex items-center">
-										<i className="fa-solid fa-terminal mr-2 text-blue-600"></i>
+							<div className="bg-white rounded-xl shadow-lg">
+								<div className="p-4 border-b border-gray-100">
+									<h3 className="text-lg font-bold flex items-center text-gray-800">
+										<i className="fa-solid fa-terminal mr-3 text-blue-600"></i>
 										Execution Logs: {selectedAgent.name}
 									</h3>
 								</div>
 								<div className="p-4">
-									<div className="bg-gray-900 text-gray-100 rounded-lg p-4 max-h-[300px] overflow-y-auto font-mono">
+									<div className="bg-gray-900 text-gray-100 rounded-lg p-4 max-h-[400px] overflow-y-auto font-mono">
 										{executionLogs.map((log, index) => (
-											<div key={index} className="flex items-center mb-2">
-												<i className="fa-solid fa-circle text-green-500 text-xs mr-2"></i>
-												{log}
+											<div key={index} className="flex items-start mb-3 last:mb-0">
+												<i className="fa-solid fa-circle text-green-500 text-[8px] mt-2 mr-3"></i>
+												<span className="flex-1">{log}</span>
 											</div>
 										))}
 										{isExecuting && (
 											<div className="flex items-center text-blue-400">
-												<i className="fa-solid fa-spinner fa-spin mr-2"></i>
-												Processing...
+												<i className="fa-solid fa-spinner fa-spin mr-3"></i>
+												<span>Processing...</span>
 											</div>
 										)}
 									</div>

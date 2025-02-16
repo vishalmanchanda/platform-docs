@@ -10,7 +10,7 @@ export default function Showcase() {
 
 	return (
 		<Layout
-			title='Infinum showcase'
+			title='Platform Showcase'
 			description={siteConfig.tagline}
 			keywords={siteConfig.customFields.keywords}
 			metaImage={useBaseUrl(`img/${siteConfig.customFields.image}`)}
