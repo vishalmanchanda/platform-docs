@@ -113,3 +113,32 @@
     color: #0000FF;
 }
 
+/* Increase main content width */
+/* .container {
+  max-width: 1400px !important; 
+  padding: 0 2rem;
+} */
+
+/* Adjust doc page container */
+.main-wrapper {
+  /* max-width: 1800px !important; */
+  /* margin: 0 auto; */
+  width: 100%;
+}
+
+
+.docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
+  width: 100% !important;
+}
+
+
+.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
+  width: 100% !important;
+}
+
+.docItemCol {
+  width: 100% !important;
+}
+
+
+

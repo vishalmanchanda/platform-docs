@@ -2,6 +2,8 @@ module.exports = {
 	docs: {
 		"Platform Engineering Aspects": [
 			'platforms/index',
+			'platforms/personas',
+			'platforms/team',
 			'platforms/guiding-principles',
 			'platforms/architectural-pillars',
 			'platforms/development-practices',
