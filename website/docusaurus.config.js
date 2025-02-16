@@ -30,9 +30,9 @@ module.exports = {
 			},
 			items: [
 				{
-					to: 'docs/platforms',
+					to: 'docs/platforms/overview',
 					activeBasePath: 'docs',
-					label: 'DevKit',
+					label: 'Docs',
 					position: 'right',
 				},
 				

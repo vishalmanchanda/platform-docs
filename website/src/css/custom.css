@@ -84,7 +84,7 @@
 
 /* change the color of the text */
 
-.theme-doc-sidebar-container {
+/* .theme-doc-sidebar-container {
 
 
 .menu__link {
@@ -103,15 +103,15 @@
     color: #0000FF;
 }
 
-}
+} */
 
 
 
 /* change the active link color to blue for all the links */
 
-.menu__link-active {
+/* .menu__link-active {
     color: #0000FF;
-}
+} */
 
 /* Increase main content width */
 /* .container {
@@ -127,17 +127,211 @@
 }
 
 
-.docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
-  width: 100% !important;
+
+.architecture-diagram {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
-  width: 100% !important;
+.architecture-diagram svg {
+  max-width: 100%;
+  height: auto;
 }
 
-.docItemCol {
-  width: 100% !important;
+.architecture-diagram rect:not([fill="url(#grid)"]) {
+  transition: all 0.3s ease;
+}
+
+.architecture-diagram rect:hover:not([fill="url(#grid)"]) {
+  filter: brightness(0.95);
+  cursor: pointer;
+}
+
+.hero-banner {
+  /* color: white; */
+  background: whitesmoke;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-banner h2 {
+  /* color: white; */
+  margin-bottom: 1rem;
+}
+
+.hero-banner p {
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.objective-card {
+  background: var(--ifm-background-surface-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.objective-card h4 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.objective-card p {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.persona-table {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.persona-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--ifm-background-surface-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.persona-table th {
+  background: var(--ifm-color-emphasis-100);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.persona-table td {
+  padding: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.persona-table tr:hover {
+  background: var(--ifm-color-emphasis-50);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .objectives-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .persona-table {
+    margin: 1rem -1rem;
+    width: calc(100% + 2rem);
+  }
+}
+
+/* Add these heading styles to your existing custom.css */
+
+/* Global heading styles */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: var(--ifm-heading-font-weight);
+  line-height: var(--ifm-heading-line-height);
+  margin: var(--ifm-heading-margin-top) 0 var(--ifm-heading-margin-bottom) 0;
+}
+
+.markdown h1 {
+  font-size: var(--ifm-h1-font-size);
+
+  margin-bottom: 1.5rem;
+}
+
+.markdown h2 {
+  font-size: var(--ifm-h2-font-size);
+
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.markdown h3 {
+  font-size: var(--ifm-h3-font-size);
+
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown h4 {
+  font-size: var(--ifm-h4-font-size);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown h5 {
+  font-size: var(--ifm-h5-font-size);
+}
+
+.markdown h6 {
+  font-size: var(--ifm-h6-font-size);
+}
+
+/* Hero banner heading override */
+.hero-banner h2 {
+  font-family: var(--ifm-heading-font-family);
+  /* color: white; */
+  margin-bottom: 1rem;
+  font-size: var(--ifm-h2-font-size);
+  font-weight: var(--ifm-heading-font-weight);
+}
+
+/* Objective card heading override */
+.objective-card h4 {
+  font-family: var(--ifm-heading-font-family);
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+  font-size: var(--ifm-h4-font-size);
+  font-weight: var(--ifm-heading-font-weight);
+}
+
+/* Table header font consistency */
+.persona-table th {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: var(--ifm-heading-font-weight);
+  font-size: var(--ifm-h5-font-size);
+}
+
+/* Ensure consistent font weights in navigation */
+.navbar .navbar__link {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+/* Sidebar heading consistency */
+.menu__link {
+  font-family: var(--ifm-heading-font-family);
+}
+
+/* Add smooth transitions */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  transition: color 0.2s ease;
 }
 
 

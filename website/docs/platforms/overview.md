@@ -1,89 +1,188 @@
 ---
-id: index
-title: Platform Engineering 
+id: overview
+title: Platform Engineering
 sidebar_label: Overview
-
 ---
 
-## Platform for engineering Platforms
+# Platform Engineering
+
+<div className="hero-banner">
+  <h2>Platform for engineering Platforms</h2>
+  <p>A comprehensive framework for developing and maintaining high-quality, efficient, and cost-effective software platforms leveraging Agentic AI.</p>
+</div>
 
 ## Executive Summary
-This framework outlines a comprehensive approach for developing and maintaining high-quality, efficient, and cost-effective software platforms. It addresses key considerations across architecture, development practices, DevOps & infrastructure, security, team collaboration, technology stack, and cost optimization.
 
-## Framework Objectives
-- Build robust, scalable platforms
-- Optimize resource utilization
-- Maintain high quality standards
-- Ensure cost effectiveness
-- Enable team collaboration
-- Promote security by design
+This addresses key considerations across:
+- Architecture & Design
+- Development Practices
+- DevOps & Infrastructure
+- Security & Compliance
+- Team Collaboration
+- Technology Stack
+- Cost Optimization
 
-### Software Development Lifecycle - Persona Mapping
+## Objectives
 
-This document outlines the tasks, standard tools, and potential AI agents that can accelerate the work of different personas within a software platform development team across various stages of the Iterative Software Development Lifecycle (SDLC).
+<div className="objectives-grid">
+  <div className="objective-card">
+    <h4>Build Robust Platforms</h4>
+    <p>Create scalable and resilient platform solutions</p>
+  </div>
+  <div className="objective-card">
+    <h4>Optimize Resources</h4>
+    <p>Maximize resource utilization and efficiency</p>
+  </div>
+  <div className="objective-card">
+    <h4>Maintain Quality</h4>
+    <p>Ensure high standards across all components</p>
+  </div>
+  <div className="objective-card">
+    <h4>Ensure Cost Effectiveness</h4>
+    <p>Optimize costs while maintaining performance</p>
+  </div>
+  <div className="objective-card">
+    <h4>Enable Collaboration</h4>
+    <p>Foster effective team collaboration</p>
+  </div>
+  <div className="objective-card">
+    <h4>Promote Security</h4>
+    <p>Implement security by design principles</p>
+  </div>
+</div>
 
-| SDLC Stage               | Persona                      | Brief Task Labels                       |
-|--------------------------|------------------------------|-----------------------------------------|
-| **Planning & Requirements** | Platform Architect           | Define Vision, Gather Requirements       |
-|                          | Backend Engineer             | API Needs, Service Requirements         |
-|                          | Frontend Engineer            | UI/UX Needs, User Workflows           |
-|                          | DevOps Engineer              | Infrastructure Requirements             |
-|                          | Security Engineer            | Security & Compliance Requirements      |
-|                          | Data Engineer              | Data Requirements, Data Flow          |
-|                          | QA Engineer                | Quality Requirements, Test Planning     |
-|                          | Product Manager            | Product Vision, Feature Prioritization  |
-|                          | Project Manager/Scrum Master | Project Planning, Resource Allocation   |
-|                          | UX Designer                | User Research, User Context            |
-| **Design & Architecture**  | Platform Architect           | Platform Architecture, Tech Selection  |
-|                          | Backend Engineer             | Backend Service Design, API Design      |
-|                          | Frontend Engineer            | UI Design, Prototype Creation          |
-|                          | DevOps Engineer              | Infrastructure Architecture, CI/CD Plan |
-|                          | Security Engineer            | Security Architecture, Control Design   |
-|                          | Data Engineer              | Data Model Design, Data Pipeline Design |
-|                          | QA Engineer                | Test Strategy, Test Plan Design        |
-|                          | Product Manager            | Feature Refinement, User Stories       |
-|                          | Project Manager/Scrum Master | Design Workshop Facilitation          |
-|                          | UX Designer                | Wireframes, Mockups, User Flows        |
-| **Development & Implementation** | Platform Architect           | Architectural Guidance, Oversight     |
-|                          | Backend Engineer             | Build Backend Services, Implement APIs  |
-|                          | Frontend Engineer            | Build Frontend Components, UI Logic    |
-|                          | DevOps Engineer              | Implement CI/CD, Automate Infra        |
-|                          | Security Engineer            | Implement Security Controls, Code Reviews|
-|                          | Data Engineer              | Build Data Pipelines, Data Access Logic|
-|                          | QA Engineer                | Develop Automated Tests, Execute Tests   |
-|                          | Product Manager            | Requirement Clarification, Sprint Goals|
-|                          | Project Manager/Scrum Master | Facilitate Daily Stand-ups, Remove Imps|
-|                          | UX Designer                | UI Implementation Collaboration        |
-| **Testing & QA**         | Platform Architect           | Review Test Plans, Coverage           |
-|                          | Backend Engineer             | Integration Tests, Component Tests     |
-|                          | Frontend Engineer            | UI Tests, E2E Tests, Usability Tests    |
-|                          | DevOps Engineer              | Test Env Automation, Infra Scalability  |
-|                          | Security Engineer            | Security Testing, Vulnerability Scans  |
-|                          | Data Engineer              | Data Pipeline Tests, Data Quality Tests|
-|                          | QA Engineer                | Execute Tests, Bug Reporting, Regression|
-|                          | Product Manager            | Review Test Results, User Validation   |
-|                          | Project Manager/Scrum Master | Track Testing Progress, Bug Workflow  |
-|                          | UX Designer                | Usability Testing, UI Feedback Analysis|
-| **Deployment & Operations** | Platform Architect           | Deployment Architecture Alignment     |
-|                          | Backend Engineer             | Deploy Backend Services              |
-|                          | Frontend Engineer            | Deploy Frontend Applications         |
-|                          | DevOps Engineer              | Automate Deployment, Manage Infra     |
-|                          | Security Engineer            | Secure Deployments, Incident Response  |
-|                          | Data Engineer              | Deploy Data Pipelines                |
-|                          | QA Engineer                | Post-Deployment Testing, Readiness    |
-|                          | Product Manager            | Plan Releases, Communicate Releases   |
-|                          | Project Manager/Scrum Master | Coordinate Deployments, Release Comm   |
-|                          | UX Designer                | Optimize UI Deployment Performance    |
-| **Monitoring & Optimization**| Platform Architect           | Performance Analysis, Optimization Plan|
-|                          | Backend Engineer             | Monitor Backend Performance, Optimize |
-|                          | Frontend Engineer            | Monitor Frontend Performance, Optimize|
-|                          | DevOps Engineer              | Monitor Infra, Optimize Cost & Perf   |
-|                          | Security Engineer            | Monitor Security Posture, Threat Intel|
-|                          | Data Engineer              | Monitor Data Pipelines, Optimize Data  |
-|                          | QA Engineer                | Monitor Production Quality Metrics     |
-|                          | Product Manager            | Analyze Usage, Prioritize Improvement|
-|                          | Project Manager/Scrum Master | Monitor Project Health, Process Improve|
-|                          | UX Designer                | Analyze User Behavior, Improve UI/UX  |
+## Roles & Responsibilities
+
+| Persona                       | Key Responsibilities                                        |
+|-------------------------------|-----------------------------------------------------------------|
+| Platform Architect(1+ 0.5)            | Vision, Architecture, Tech Strategy, Scalability                 |
+| Backend Engineer (1 + 2)             | Server-Side Logic, APIs, Data Services, Backend Code             |
+| Frontend Engineer(1 + 1 + Pod)             | User Interfaces, Client Apps, UI/UX Implementation            |
+| DevOps Engineer (1 + Pod)              | Automation, CI/CD, Infrastructure, Deployment, Operations       |
+| Security Engineer(0.5 + Pod)             | Security, Vulnerability Management, Threat Protection          |
+| Data Engineer (1 + Pod)                | Data Infrastructure, Data Pipelines, Data Management            |
+| QA Engineer (Quality Assurance) (1 + PoD)| Testing, Quality, Bug Detection, Test Automation               |
+| Product Manager (1)               | Product Vision, Roadmap, Requirements, Feature Prioritization |
+| Project Manager/Scrum Master(0.5 - 1)  | Project Management, Agile Process, Facilitation, Team Flow     |
+| UX Designer (User Experience) (1 + Pod)| User Experience, Usability, UI Design, User Research           |
+
+## Software Development Lifecycle - Persona Mapping
+
+This section outlines the tasks, standard tools, and potential AI agents that can accelerate the work of different personas within a software platform development team.
+
+### Planning & Requirements
+
+<div className="persona-table">
+
+| Persona | Brief Task Labels |
+|---------|------------------|
+| Platform Architect | Define Vision, Gather Requirements |
+| Backend Engineer | API Needs, Service Requirements |
+| Frontend Engineer | UI/UX Needs, User Workflows |
+| DevOps Engineer | Infrastructure Requirements |
+| Security Engineer | Security & Compliance Requirements |
+| Data Engineer | Data Requirements, Data Flow |
+| QA Engineer | Quality Requirements, Test Planning |
+| Product Manager | Product Vision, Feature Prioritization |
+| Project Manager | Project Planning, Resource Allocation |
+| UX Designer | User Research, User Context |
+
+</div>
+
+### Design & Architecture
+
+<div className="persona-table">
+
+| Persona | Brief Task Labels |
+|---------|------------------|
+| Platform Architect | Platform Architecture, Tech Selection |
+| Backend Engineer | Backend Service Design, API Design |
+| Frontend Engineer | UI Design, Prototype Creation |
+| DevOps Engineer | Infrastructure Architecture, CI/CD Plan |
+| Security Engineer | Security Architecture, Control Design |
+| Data Engineer | Data Model Design, Data Pipeline Design |
+| QA Engineer | Test Strategy, Test Plan Design |
+| Product Manager | Feature Refinement, User Stories |
+| Project Manager | Design Workshop Facilitation |
+| UX Designer | Wireframes, Mockups, User Flows |
+
+</div>
+
+### Development & Implementation
+
+<div className="persona-table">
+
+| Persona | Brief Task Labels |
+|---------|------------------|
+| Platform Architect | Architecture Oversight, Technical Guidance |
+| Backend Engineer | Backend Development, API Implementation |
+| Frontend Engineer | UI Development, Frontend Integration |
+| DevOps Engineer | CI/CD Implementation, Infrastructure Setup |
+| Security Engineer | Security Implementation, Code Reviews |
+| Data Engineer | Data Pipeline Development, ETL Implementation |
+| QA Engineer | Test Development, Automation Implementation |
+| Product Manager | Sprint Management, Feature Clarification |
+| Project Manager | Sprint Facilitation, Progress Tracking |
+| UX Designer | Design Implementation Support, UI Review |
+
+</div>
+
+### Testing & QA
+
+<div className="persona-table">
+
+| Persona | Brief Task Labels |
+|---------|------------------|
+| Platform Architect | Architecture Validation, System Testing |
+| Backend Engineer | Unit Testing, Integration Testing |
+| Frontend Engineer | UI Testing, End-to-End Testing |
+| DevOps Engineer | Infrastructure Testing, Performance Testing |
+| Security Engineer | Security Testing, Vulnerability Assessment |
+| Data Engineer | Data Quality Testing, Pipeline Testing |
+| QA Engineer | Test Execution, Bug Tracking |
+| Product Manager | UAT Coordination, Feature Validation |
+| Project Manager | Test Progress Tracking, Issue Management |
+| UX Designer | Usability Testing, Design Validation |
+
+</div>
+
+### Deployment & Operations
+
+<div className="persona-table">
+
+| Persona | Brief Task Labels |
+|---------|------------------|
+| Platform Architect | Deployment Architecture, System Stability |
+| Backend Engineer | Service Deployment, Production Support |
+| Frontend Engineer | Frontend Deployment, UI Performance |
+| DevOps Engineer | Infrastructure Deployment, CI/CD Management |
+| Security Engineer | Security Monitoring, Incident Response |
+| Data Engineer | Data Pipeline Deployment, Data Operations |
+| QA Engineer | Production Testing, Release Validation |
+| Product Manager | Release Planning, Feature Launch |
+| Project Manager | Deployment Coordination, Release Management |
+| UX Designer | UI/UX Deployment Review, Performance Check |
+
+</div>
+
+### Monitoring & Optimization
+
+<div className="persona-table">
+
+| Persona | Brief Task Labels |
+|---------|------------------|
+| Platform Architect | System Performance, Architecture Optimization |
+| Backend Engineer | Service Monitoring, Backend Optimization |
+| Frontend Engineer | UI Performance, Frontend Optimization |
+| DevOps Engineer | Infrastructure Monitoring, Resource Optimization |
+| Security Engineer | Security Monitoring, Threat Detection |
+| Data Engineer | Pipeline Monitoring, Data Optimization |
+| QA Engineer | Quality Metrics, Test Optimization |
+| Product Manager | Feature Performance, Product Metrics |
+| Project Manager | Process Optimization, Team Performance |
+| UX Designer | UX Monitoring, Design Optimization |
+
+</div>
 
 ### 1. Platform Architect
 
