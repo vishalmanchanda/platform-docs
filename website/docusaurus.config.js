@@ -18,6 +18,7 @@ module.exports = {
 			async: true,
 			defer: true,
 		},
+		'https://cdn.tailwindcss.com'
 	],
 	themeConfig: {
 		navbar: {
